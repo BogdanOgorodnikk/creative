@@ -47,4 +47,54 @@ $(document).ready(function(){
       items: 1,
       loop: true
     });
+    $(".teamwork__item").on('mouseover', function(){
+      var teamwork_photo = $(this).children(".teamwork__photo");
+      teamwork_photo.children(".teamwork__overlay").removeClass("none");
+      var teamwork_info = $(this).children(".teamwork__info");
+      teamwork_info.addClass("teamwork__info-active");
+      teamwork_info.children(".teamwork__name").addClass("teamwork__name-active ");
+    });
+    $(".teamwork__item").on('mouseout', function(){
+      var teamwork_photo = $(this).children(".teamwork__photo");
+      teamwork_photo.children(".teamwork__overlay").addClass("none");
+      var teamwork_info = $(this).children(".teamwork__info");
+      teamwork_info.removeClass("teamwork__info-active");
+      teamwork_info.children(".teamwork__name").removeClass("teamwork__name-active ");
+    });
+
+    $(".services__item").on('mouseover', function(){
+      var services_name = $(this).find(".services__name--icon");
+      services_name.addClass("services__name--icon-active");
+      var services_info = $(this).find(".services__info");
+      services_info.addClass("services__info-active");
+      var services_info_t = $(this).find(".services__info--text");
+      services_info_t.addClass("services__info--text-active");
+
+    });
+    $(".services__item").on('mouseout', function(){
+      var services_name = $(this).find(".services__name--icon");
+      services_name.removeClass("services__name--icon-active");
+      var services_info = $(this).find(".services__info");
+      services_info.removeClass("services__info-active");
+      var services_info_t = $(this).find(".services__info--text");
+      services_info_t.removeClass("services__info--text-active");
+    });
+    $(".bestseller__configuration--button").on('mouseover', function(){
+      var bestseller_price = $(this).parent(".bestseller__configuration");
+      var aa = bestseller_price.parent(".bestseller__item");
+      aa.find(".bestseller__price").addClass("bestseller__price-active");
+      aa.find(".bestseller__price--text").addClass("bestseller__price--text-active");
+      aa.find(".bestseller__price--time").addClass("bestseller__price--text-active");
+    });
+    $(".bestseller__configuration--button").on('mouseout', function(){
+      var bestseller_price = $(this).parent(".bestseller__configuration");
+      var bestseller_parent = bestseller_price.parent(".bestseller__item");
+      bestseller_parent.find(".bestseller__price").removeClass("bestseller__price-active");
+      bestseller_parent.find(".bestseller__price--text").removeClass("bestseller__price--text-active");
+      bestseller_parent.find(".bestseller__price--time").removeClass("bestseller__price--text-active");
+    });
+    $(".blog__more").on('click', function() {
+      $(this).addClass('none');
+      $('.blog__item').removeClass('none');
+    });
   });
